@@ -1,0 +1,36 @@
+<div id="ar1">
+  <img id="i1" src="#" alt = "">
+  <a id="a1" href = "#" class="link-btn" target="_blank"></a><br> </div>
+<div id="ar2">
+  <img id="i2" src="#" alt = "">
+  <a id="a2" href = "#" class="link-btn" target="_blank"></a><br> </div>
+<div id="ar3">
+  <img id="i3" src="#" alt = "">
+  <a id="a3" href = "#" class="link-btn" target="_blank"></a><br> </div>
+<div id="ar4">
+  <img id="i4" src="#" alt = "">
+  <a id="a4" href = "#" class="link-btn" target="_blank"></a><br> </div>
+<div id="ar5">
+  <img id="i5" src="#" alt = "">
+  <a id="a5" href = "#" class="link-btn" target="_blank"></a><br> </div>
+<div id="ar6">
+  <img id="i6" src="#" alt = "">
+  <a id="a6" href = "#" class="link-btn" target="_blank"></a><br> </div>
+<div id="ar7">
+  <img id="i7" src="#" alt = "">
+  <a id="a7" href = "#" class="link-btn" target="_blank"></a><br> </div>
+<div id="ar8">
+  <img id="i8" src="#" alt = "">
+  <a id="a8" href = "#" class="link-btn" target="_blank"></a><br> </div>
+<div id="ar9">
+  <img id="i9" src="#" alt = "">
+  <a id="a9" href = "#" class="link-btn" target="_blank"></a><br> </div>
+<div id="ar10">
+  <img id="i10" src="#" alt = "">
+  <a id="a10" href = "#" class="link-btn" target="_blank"></a> </div>
+
+
+
+  var img = document.createElement('img');
+  img.src = data.articles[i].urlToImage;
+  document.getElementById('articles').appendChild(img);
