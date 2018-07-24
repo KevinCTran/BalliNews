@@ -24,8 +24,6 @@ var url = 'https://newsapi.org/v2/everything?' +
           'sortBy=popularity&' +
           'apiKey=9686d92a39f845f9aab9f7674aa08654';
 
-var articleList = ["a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10"];
-var imgList = ["i1", "i2", "i3", "i4", "i5", "i6", "i7", "i8", "i9", "i10"];
 var req = new Request(url);
 
 fetch(req)
@@ -33,12 +31,20 @@ fetch(req)
     .then(getJSON)
     .then(function(data) {
       for (var i = 0; i < 10; i++) {
-        //var img = document.createElement('img');
-        //img.src = data.articles[i].urlToImage;
-        //document.getElementById('articles').appendChild(img);
-        document.getElementById(imgList[i]).src = data.articles[i].urlToImage;
-        document.getElementById(articleList[i]).innerHTML = data.articles[i].title;
-        document.getElementById(articleList[i]).href = data.articles[i].url;
+        var link = document.createElement('a');
+        var img = document.createElement("img");
+        link.href = data.articles[i].url;
+        link.target = "_blank";
+        img.src = data.articles[i].urlToImage;
+        link.appendChild(img);
+        document.getElementById("articles").appendChild(link);
+
+        var link2 = document.createElement('a');
+        link2.href = data.articles[i].url;
+        link2.innerHTML = data.articles[i].title;
+        link2.target = "_blank";
+        link2.className = "link-btn";
+        document.getElementById("articles").appendChild(link2);
       }
     })
     .catch(function(err) {
@@ -57,21 +63,3 @@ function checkStatus(response) {
 function getJSON(response) {
   return response.json();
 }
-/*
-function createImage(link) {
-  var x = document.createElement("IMG");
-  x.setAttribute("src", link);
-
-  x.setAttribute("alt", "Image");
-  document.body.appendChild(x);
-}
-
-function createHyperlink(title, link) {
-  var a = document.createElement('a');
-  var linkText = document.createTextNode(title);
-  a.appendChild(linkText);
-  a.title = title;
-  a.href = link;
-  document.body.appendChild(a);
-}
-*/
