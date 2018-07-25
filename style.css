@@ -24,8 +24,8 @@ body {
 }
 
 a {
+  display: inline-block;
   text-decoration: none;
-  display: block;
 }
 
 a:hover {
