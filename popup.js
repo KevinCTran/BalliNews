@@ -1,6 +1,3 @@
-// popup.js
-// Kevin Tran
-
 var oneWeekAgo = new Date();
 oneWeekAgo.setDate(oneWeekAgo.getDate() - 3);
 
@@ -31,20 +28,8 @@ fetch(req)
     .then(getJSON)
     .then(function(data) {
       for (var i = 0; i < 10; i++) {
-        var link = document.createElement('a');
-        var img = document.createElement("img");
-        link.href = data.articles[i].url;
-        link.target = "_blank";
-        img.src = data.articles[i].urlToImage;
-        link.appendChild(img);
-        document.getElementById("articles").appendChild(link);
-
-        var link2 = document.createElement('a');
-        link2.href = data.articles[i].url;
-        link2.innerHTML = data.articles[i].title;
-        link2.target = "_blank";
-        link2.className = "link-btn";
-        document.getElementById("articles").appendChild(link2);
+        createImage(data, i);
+        createLink(data, i);
       }
     })
     .catch(function(err) {
@@ -62,4 +47,23 @@ function checkStatus(response) {
 
 function getJSON(response) {
   return response.json();
+}
+
+function createImage(data, count) {
+  var imglink = document.createElement('a');
+  var img = document.createElement("img");
+  imglink.href = data.articles[count].url;
+  imglink.target = "_blank";
+  img.src = data.articles[count].urlToImage;
+  imglink.appendChild(img);
+  document.getElementById("articles").appendChild(imglink);
+}
+
+function createLink(data, count) {
+  var link = document.createElement('a');
+  link.href = data.articles[count].url;
+  link.innerHTML = data.articles[count].title;
+  link.target = "_blank";
+  link.className = "link-btn";
+  document.getElementById("articles").appendChild(link);
 }
