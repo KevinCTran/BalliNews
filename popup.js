@@ -15,7 +15,7 @@ if (mm < 10) {
 
 var url = 'https://newsapi.org/v2/everything?' +
           'q=nba&' +
-          'sources=espn,fox-sports,bleacher-report&' +
+          'sources=espn, fox-sports, bleacher-report&' +
           'from=' + yyyy + '-' + mm + '-' + dd + '&' +
           'language=en&' +
           'sortBy=popularity&' +
@@ -57,7 +57,12 @@ function createImage(data, count) {
   var img = document.createElement("img");
   imglink.href = data.articles[count].url;
   imglink.target = "_blank";
-  img.src = data.articles[count].urlToImage;
+  if (data.articles[count].urlToImage) {
+    img.src = data.articles[count].urlToImage;
+  } else {
+    img.src = "http://content.sportslogos.net/news/2017/07/New-NBA-Logo-Wordmark-.png";
+    img.className = "default-img";
+  }
   imglink.appendChild(img);
   document.getElementById("articles").appendChild(imglink);
 }
