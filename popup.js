@@ -36,6 +36,9 @@ fetch(req)
       console.log('ERROR', err);
     });
 
+
+/* HELPER FUNCTIONS */
+
 function checkStatus(response) {
   if (response.status === 200) {
     return Promise.resolve(response);

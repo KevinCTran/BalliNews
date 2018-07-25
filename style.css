@@ -14,6 +14,7 @@ body {
 }
 
 .link-btn {
+  width: 747px;
   font-size: 18px;
   font-weight: bold;
   color: white;
@@ -22,17 +23,9 @@ body {
   margin-bottom: 15px;
 }
 
-h1 {
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    text-align: center;
-}
-
 a {
   text-decoration: none;
-  display: inline-block;
-  width: 747px;
+  display: block;
 }
 
 a:hover {
