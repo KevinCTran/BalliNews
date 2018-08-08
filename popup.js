@@ -15,19 +15,19 @@ if (mm < 10) {
 
 var url = 'https://newsapi.org/v2/everything?' +
           'q=nba&' +
-          'sources=espn, fox-sports, bleacher-report&' +
+          'sources=espn,business-insider,bleacher-report&' +
           'from=' + yyyy + '-' + mm + '-' + dd + '&' +
           'language=en&' +
-          'sortBy=popularity&' +
+          'sortBy=relevancy&' +
           'apiKey=9686d92a39f845f9aab9f7674aa08654';
-
+/*
+*/
 var req = new Request(url);
-
 fetch(req)
     .then(checkStatus)
     .then(getJSON)
     .then(function(data) {
-      for (var i = 0; i < 10; i++) {
+      for (let i = 0; i < 10; i++) {
         createImage(data, i);
         createLink(data, i);
       }
@@ -36,6 +36,24 @@ fetch(req)
       console.log('ERROR', err);
     });
 
+var redditurl = 'https://www.reddit.com/r/nba.json?limit=12';
+
+var redditreq = new Request(redditurl);
+fetch(redditreq)
+    .then(checkStatus)
+    .then(getJSON)
+    .then(function(datavar) {
+      for (let i = 2; i < 12; i++) {
+        redditPosts(datavar, i);
+      }
+    })
+
+document.addEventListener('DOMContentLoaded', () => {
+  var box = document.getElementById('check');
+  box.addEventListener('click', () => {
+    toggleCheckbox();
+  });
+});
 
 /* HELPER FUNCTIONS */
 
@@ -60,7 +78,7 @@ function createImage(data, count) {
   if (data.articles[count].urlToImage) {
     img.src = data.articles[count].urlToImage;
   } else {
-    img.src = "http://content.sportslogos.net/news/2017/07/New-NBA-Logo-Wordmark-.png";
+    img.src = "https://preview.ibb.co/fzgBm8/nbalogo.jpg";
     img.className = "default-img";
   }
   imglink.appendChild(img);
@@ -70,8 +88,31 @@ function createImage(data, count) {
 function createLink(data, count) {
   var link = document.createElement('a');
   link.href = data.articles[count].url;
-  link.innerHTML = data.articles[count].title;
+  link.textContent = data.articles[count].title;
   link.target = "_blank";
   link.className = "link-btn";
   document.getElementById("articles").appendChild(link);
+}
+
+function redditPosts(datavar, count) {
+  var redditDIV = document.getElementById("redditposts");
+  var link = document.createElement('a');
+  link.href = datavar.data.children[count].data.url;
+  link.textContent = datavar.data.children[count].data.title;
+  link.target = "_blank";
+  link.className = "link-btn";
+  document.getElementById("redditposts").appendChild(link);
+}
+
+function toggleCheckbox() {
+  var x = document.getElementById("redditposts");
+  var y = document.getElementById("articles");
+
+   if (x.style.display === "none") {
+       x.style.display = "block";
+       y.style.display = "none";
+   } else {
+       x.style.display = "none";
+       y.style.display = "block";
+   }
 }
