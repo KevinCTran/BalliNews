@@ -78,6 +78,7 @@ function createImage(data, count) {
   imglink.target = "_blank";
   if (data.articles[count].urlToImage) {
     img.src = data.articles[count].urlToImage;
+    img.className = "article-img";
   } else {
     img.src = "https://preview.ibb.co/fzgBm8/nbalogo.jpg";
     img.className = "default-img";

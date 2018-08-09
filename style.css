@@ -1,17 +1,30 @@
+html {
+  font-size: 62.5%;
+}
 
 body {
   min-width: 750px;
   min-height: 600px;
   background-color: #ECE7E7;
+  margin: 0;
 }
 
+/*********************************************
+**********************************************
+                    NAVBAR
+**********************************************
+*********************************************/
 .header_icon {
-  margin-left: auto;
-  margin-right: auto;
-  float: left;
-  margin-top: -15px;
+  object-fit: contain;
+  object-position: 50% 50%;
   margin-bottom: 15px;
-  display: inline-block;
+}
+
+.navibar {
+  background-color: #C7C1C1;
+  margin-bottom: 15px;
+  height: 85px;
+  margin-bottom: 30px;
 }
 
 /*********************************************
@@ -20,14 +33,15 @@ body {
 **********************************************
 *********************************************/
 .link-btn {
-  width: 747px;
+  display: block;
+  width: calc(100% - 2rem);
+  margin: auto auto 1.6rem auto;
+  padding: 10px;
   font-size: 18px;
   font-weight: bold;
   color: white;
   background: #000000;
-  padding: 10px 10px;
-  margin-bottom: 1.6rem;
-  display: block;
+  box-sizing: border-box;
 }
 
 a {
@@ -48,20 +62,22 @@ a {
                     IMAGES
 **********************************************
 *********************************************/
-img {
-  width: 100%;
+.article-img {
+  display: block;
+  margin: auto;
+  width: calc(100% - 2rem);
   height: 250px;
   object-fit: cover;
   object-position: 50% 10%;
-  margin-bottom: -5px;
 }
 
 .default-img {
-  width: 100%;
+  display: block;
+  margin: auto;
+  width: calc(100% - 2rem);
   height: 250px;
   object-fit: cover;
-  object-position: 50% 50%;
-  margin-bottom: -5px;
+  object-position: 50% 10%;
 }
 
 /*********************************************
@@ -76,8 +92,8 @@ img {
   width: 70px;
   height: 25px;
   float: right;
-  margin-top: 15px;
-  margin-right: 25px;
+  top: 15px;
+  right: 15px;
 }
 
 /* Hide default HTML checkbox */
@@ -150,7 +166,7 @@ input:checked + .slider:after
   display: flex;
   flex-flow: row nowrap;
   padding: 1rem;
-  margin-bottom: 1.6rem;
+  margin: 0rem 1rem 1.6rem 1rem;
   background: white;
   border-radius: 1.2rem;
   font-size: 18px;
