@@ -13,17 +13,15 @@ if (mm < 10) {
   mm = '0' + mm
 }
 
-var url = 'https://newsapi.org/v2/everything?' +
+var newsurl = 'https://newsapi.org/v2/everything?' +
           'q=nba&' +
           'sources=espn,business-insider,bleacher-report&' +
           'from=' + yyyy + '-' + mm + '-' + dd + '&' +
           'language=en&' +
           'sortBy=relevancy&' +
           'apiKey=9686d92a39f845f9aab9f7674aa08654';
-/*
-*/
-var req = new Request(url);
-fetch(req)
+
+fetch(newsurl)
     .then(checkStatus)
     .then(getJSON)
     .then(function(data) {
@@ -38,13 +36,12 @@ fetch(req)
 
 var redditurl = 'https://www.reddit.com/r/nba.json?limit=12';
 
-var redditreq = new Request(redditurl);
-fetch(redditreq)
+fetch(redditurl)
     .then(checkStatus)
     .then(getJSON)
     .then(function(datavar) {
       for (let i = 2; i < 12; i++) {
-        redditPosts(datavar, i);
+        createRedditPost(datavar, i);
       }
     })
 
@@ -55,7 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-/* HELPER FUNCTIONS */
+/*********************************************
+**********************************************
+HELPER FUNCTIONS
+**********************************************
+*********************************************/
 
 function checkStatus(response) {
   if (response.status === 200) {
@@ -94,14 +95,34 @@ function createLink(data, count) {
   document.getElementById("articles").appendChild(link);
 }
 
-function redditPosts(datavar, count) {
-  var redditDIV = document.getElementById("redditposts");
+function createRedditPost(datavar, count) {
+  postURL = "https://www.reddit.com" + datavar.data.children[count].data.permalink;
+
+  var iDiv = document.createElement("div");
+  iDiv.className = "post-container";
+
+  var upvote = document.createElement('a');
+  upvote.className = "upvotes";
+  upvote.href = postURL;
+  upvote.textContent = datavar.data.children[count].data.ups;
+  upvote.target = "_blank";
+  iDiv.appendChild(upvote);
+
+  var comment = document.createElement('a');
+  comment.className = "comments";
+  comment.href = postURL;
+  comment.textContent = datavar.data.children[count].data.num_comments;
+  comment.target = "_blank";
+  iDiv.appendChild(comment);
+
   var link = document.createElement('a');
+  link.className = "postTitle";
   link.href = datavar.data.children[count].data.url;
   link.textContent = datavar.data.children[count].data.title;
   link.target = "_blank";
-  link.className = "link-btn";
-  document.getElementById("redditposts").appendChild(link);
+  iDiv.appendChild(link);
+
+  document.getElementById("redditposts").appendChild(iDiv);
 }
 
 function toggleCheckbox() {
