@@ -127,14 +127,17 @@ function createRedditPost(datavar, count) {
 }
 
 function toggleCheckbox() {
-  var x = document.getElementById("redditposts");
-  var y = document.getElementById("articles");
+  var reddit_posts = document.getElementById("redditposts");
+  var articles = document.getElementById("articles");
+  var reddit_bar = document.getElementById("redditbar");
 
-   if (x.style.display === "none") {
-       x.style.display = "block";
-       y.style.display = "none";
+   if (reddit_posts.style.display === "none") {
+       reddit_posts.style.display = "block";
+       reddit_bar.style.display = "flex";
+       articles.style.display = "none";
    } else {
-       x.style.display = "none";
-       y.style.display = "block";
+       reddit_posts.style.display = "none";
+       reddit_bar.style.display = "none";
+       articles.style.display = "block";
    }
 }

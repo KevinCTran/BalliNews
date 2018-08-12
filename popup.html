@@ -3,17 +3,27 @@
   <head>
     <title>Basketball News</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <script src="popup.js"></script>
   </head>
   <body>
     <div class="navibar">
-      <img id="header" src="header_icon.png" alt="icon" class="header_icon" style="width:130px;height:80px;"/>
+      <img id="header" src="header_icon.png" alt="icon" class="header-icon" style="width:130px;height:80px;"/>
       <label class="switch"/>
         <input type="checkbox" id="check"/>
         <span class="slider"></span>
       </label>
     </div>
+
     <div id="articles"> </div>
-    <div id="redditposts" class="hide" style="display: none;"</div>
+
+    <div id="reddit">
+      <div id="redditbar" class="reddit-uibar" style="display:none;">
+          <i class="fas fa-arrow-up"></i>
+          <i class="fas fa-comment"></i>
+          <a href="https://www.reddit.com/r/nba" class="title-link" target="_blank">r/NBA</a>
+      </div>
+      <div id="redditposts" style="display: none;"> </div>
+    </div>
   </body>
 </html>
