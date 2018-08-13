@@ -200,19 +200,18 @@ input:checked + .slider:after
 
 .fa-arrow-up {
   flex: 1;
-  margin-left: 3rem;
+  margin-left: 2.5rem;
 }
 
 .fa-comment {
   flex: 1;
-  margin-left: -1rem;
+  margin-left: -0.8rem;
 }
 
 .title-link {
   flex: 7;
   font-size: 2.5rem;
   font-weight: bold;
-  margin-left: -1rem;
 }
 
 .title-link:hover {
