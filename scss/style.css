@@ -179,14 +179,14 @@ a {
   background-color: #bfbfbf;
 }
 
-.post-container .upvotes, .post-container .comments {
+.post-container a {
   flex: 1;
 }
 
-.post-container .upvotes:hover, .post-container .comments:hover {
+.post-container a:hover {
   color: white;
 }
 
-.post-container .postTitle {
+.post-container a.postTitle {
   flex: 7;
 }

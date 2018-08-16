@@ -164,13 +164,11 @@ a {
   &:hover {
     background-color: #bfbfbf;
   }
-  .upvotes, .comments {
+  a {
     flex: 1;
-    &:hover {
-      color: white;
+    &:hover {color: white;}
+    &.postTitle {
+      flex: 7;
     }
-  }
-  .postTitle {
-    flex: 7;
   }
 }
