@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Basketball News</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <title>BalliNews</title>
+    <link rel="stylesheet" type="text/css" href="scss/style.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <script src="popup.js"></script>
   </head>
   <body>
     <div class="navibar">
-      <img id="header" src="header_icon.png" alt="icon" class="header-icon" style="width:130px;height:80px;"/>
-      <label class="switch"/>
+      <img src="header_icon.png" alt="icon" class="header-icon" style="width:130px;height:80px;"/>
+      <label class="switch">
         <input type="checkbox" id="check"/>
         <span class="slider"></span>
       </label>
     </div>
 
-    <div id="articles"> </div>
+    <div id="articles-container"> </div>
 
-    <div id="reddit">
+    <div id="reddit-container">
       <div id="redditbar" class="reddit-uibar" style="display:none;">
           <i class="fas fa-arrow-up"></i>
           <i class="fas fa-comment"></i>
@@ -25,5 +25,6 @@
       </div>
       <div id="redditposts" style="display: none;"> </div>
     </div>
+    <script src="popup.js"></script>
   </body>
 </html>

@@ -78,13 +78,11 @@ function createImage(data, count) {
   imglink.target = "_blank";
   if (data.articles[count].urlToImage) {
     img.src = data.articles[count].urlToImage;
-    img.className = "article-img";
   } else {
     img.src = "https://preview.ibb.co/fzgBm8/nbalogo.jpg";
-    img.className = "default-img";
   }
   imglink.appendChild(img);
-  document.getElementById("articles").appendChild(imglink);
+  document.getElementById("articles-container").appendChild(imglink);
 }
 
 function createLink(data, count) {
@@ -93,7 +91,7 @@ function createLink(data, count) {
   link.textContent = data.articles[count].title;
   link.target = "_blank";
   link.className = "link-btn";
-  document.getElementById("articles").appendChild(link);
+  document.getElementById("articles-container").appendChild(link);
 }
 
 function createRedditPost(datavar, count) {
@@ -128,7 +126,7 @@ function createRedditPost(datavar, count) {
 
 function toggleCheckbox() {
   var reddit_posts = document.getElementById("redditposts");
-  var articles = document.getElementById("articles");
+  var articles = document.getElementById("articles-container");
   var reddit_bar = document.getElementById("redditbar");
 
    if (reddit_posts.style.display === "none") {
