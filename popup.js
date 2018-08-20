@@ -101,14 +101,12 @@ function createRedditPost(datavar, count) {
   iDiv.className = "post-container";
 
   var upvote = document.createElement('a');
-  upvote.className = "upvotes";
   upvote.href = postURL;
   upvote.textContent = datavar.data.children[count].data.ups;
   upvote.target = "_blank";
   iDiv.appendChild(upvote);
 
   var comment = document.createElement('a');
-  comment.className = "comments";
   comment.href = postURL;
   comment.textContent = datavar.data.children[count].data.num_comments;
   comment.target = "_blank";

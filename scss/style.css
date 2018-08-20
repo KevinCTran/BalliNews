@@ -45,7 +45,7 @@ a {
 }
 
 .navibar .switch input:checked + .slider {
-  background-color: #f29121;
+  background-color: orange;
 }
 
 .navibar .switch input:focus + .slider {
