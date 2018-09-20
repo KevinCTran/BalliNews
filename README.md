@@ -1,4 +1,4 @@
-# BalliNews
+# HoopiNews
 Chrome extension for NBA news
 
 Using NewsAPI.org to pull from:
